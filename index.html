@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Jay'z Entertainment</title>
+
+<style>
+
+body{
+margin:0;
+font-family:Arial;
+background:#111;
+color:white;
+}
+
+header{
+background:#ff1f1f;
+padding:25px;
+text-align:center;
+}
+
+nav{
+background:#000;
+padding:15px;
+text-align:center;
+}
+
+nav a{
+color:white;
+margin:15px;
+text-decoration:none;
+font-weight:bold;
+}
+
+.hero{
+padding:90px;
+text-align:center;
+background:#222;
+}
+
+.section{
+padding:50px;
+text-align:center;
+}
+
+.grid{
+display:flex;
+gap:30px;
+flex-wrap:wrap;
+justify-content:center;
+}
+
+.card{
+background:#222;
+padding:20px;
+border-radius:10px;
+width:250px;
+}
+
+button{
+background:#ff1f1f;
+border:none;
+padding:10px 20px;
+color:white;
+cursor:pointer;
+margin-top:10px;
+}
+
+.cart{
+position:fixed;
+top:20px;
+right:20px;
+background:#000;
+padding:15px;
+border-radius:10px;
+}
+
+.vip{
+background:#1a1a1a;
+}
+
+.race{
+background:#000;
+padding:60px;
+}
+
+.track{
+position:relative;
+height:120px;
+background:#333;
+border-radius:20px;
+overflow:hidden;
+}
+
+.car{
+position:absolute;
+top:30px;
+width:60px;
+animation:race 4s linear infinite;
+}
+
+@keyframes race{
+0%{left:-80px;}
+100%{left:100%;}
+}
+
+.contact input,
+.contact textarea{
+width:300px;
+padding:10px;
+margin:8px;
+border:none;
+border-radius:5px;
+}
+
+footer{
+background:#000;
+padding:20px;
+text-align:center;
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+<h1>Jay'z Entertainment</h1>
+<p>High Speed RC Cars</p>
+</header>
+
+<nav>
+<a href="#shop">Shop</a>
+<a href="#vip">VIP</a>
+<a href="#race">RC Racing</a>
+<a href="#contact">Contact</a>
+</nav>
+
+<div class="cart">
+🛒 Cart: <span id="cart-count">0</span>
+</div>
+
+<section class="hero">
+<h1>Welcome to Jay'z Entertainment</h1>
+<p>The best RC cars for speed and racing!</p>
+</section>
+
+<section id="shop" class="section">
+<h2>RC Car Shop</h2>
+
+<div class="grid">
+
+<div class="card">
+<h3>Speed Racer</h3>
+<p>$120</p>
+<button onclick="addToCart()">Add to Cart</button>
+</div>
+
+<div class="card">
+<h3>Off Road Beast</h3>
+<p>$180</p>
+<button onclick="addToCart()">Add to Cart</button>
+</div>
+
+<div class="card">
+<h3>Mini Drift Car</h3>
+<p>$90</p>
+<button onclick="addToCart()">Add to Cart</button>
+</div>
+
+<div class="card">
+<h3>Monster Truck RC</h3>
+<p>$210</p>
+<button onclick="addToCart()">Add to Cart</button>
+</div>
+
+</div>
+
+<br>
+
+<!-- PAYPAL BUTTON -->
+<div id="paypal-button-container"></div>
+
+</section>
+
+<section id="vip" class="section vip">
+
+<h2>👑 VIP Members</h2>
+
+<p>Join the Jay'z Entertainment VIP club and get:</p>
+
+<p>✔ Early access to new RC cars</p>
+<p>✔ VIP racing events</p>
+<p>✔ Discounts on RC gear</p>
+<p>✔ Exclusive merch</p>
+
+<button>Join VIP</button>
+
+</section>
+
+<section id="race" class="race">
+
+<h2>🏎️ RC Car Racing</h2>
+
+<div class="track">
+<img class="car" src="https://cdn-icons-png.flaticon.com/512/744/744465.png">
+</div>
+
+</section>
+
+<section id="contact" class="section contact">
+<h2>Contact Jay'z Entertainment</h2>
+
+<p>Email: jayzentertainmentz@gmail.com</p>
+<p>Phone: 248-216-8226</p>
+
+<h3>Send us a message</h3>
+
+<form>
+<input type="text" placeholder="Your Name" required><br>
+<input type="email" placeholder="Your Email" required><br>
+<textarea placeholder="Your Message"></textarea><br>
+<button type="submit">Send Message</button>
+</form>
+
+</section>
+
+<footer>
+© 2026 Jay'z Entertainment
+</footer>
+
+<script>
+
+let cart = 0
+
+function addToCart(){
+cart++
+document.getElementById("cart-count").innerText = cart
+}
+
+</script>
+
+<!-- PAYPAL SCRIPT -->
+<script src="https://www.paypal.com/sdk/js?client-id=sb&currency=USD"></script>
+
+<script>
+paypal.Buttons({
+createOrder: function(data, actions) {
+return actions.order.create({
+purchase_units: [{
+amount: {
+value: '10.00'
+}
+}]
+});
+},
+onApprove: function(data, actions) {
+return actions.order.capture().then(function(details) {
+alert('Payment completed by ' + details.payer.name.given_name);
+});
+}
+}).render('#paypal-button-container');
+</script>
+
+</body>
+</html>
