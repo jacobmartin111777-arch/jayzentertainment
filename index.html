@@ -582,6 +582,31 @@
     .btn:hover { background: var(--red-dark); }
     .text-center { text-align: center; }
 
+    .stats-bar { display: flex; flex-wrap: wrap; justify-content: center; gap: 2rem; padding: 1.5rem; background: var(--dark); border-bottom: 1px solid var(--gray); }
+    .stats-bar .stat { text-align: center; }
+    .stats-bar .stat strong { display: block; font-size: 1.5rem; color: var(--red); font-family: 'Orbitron', sans-serif; }
+    .stats-bar .stat span { font-size: 0.9rem; color: #aaa; }
+    .why-section { background: var(--black); }
+    .why-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.25rem; max-width: 1000px; margin: 0 auto; }
+    .why-card { background: var(--dark); padding: 1.25rem; border-radius: 12px; border: 1px solid var(--gray); text-align: center; transition: border-color 0.2s; }
+    .why-card:hover { border-color: var(--red); }
+    .why-card .icon { font-size: 2rem; margin-bottom: 0.5rem; }
+    .why-card strong { display: block; color: var(--red); margin-bottom: 0.35rem; }
+    .why-card p { font-size: 0.95rem; color: #bbb; margin: 0; }
+    .categories-section { background: var(--gray); }
+    .cat-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.75rem; }
+    .cat-link { display: inline-block; background: var(--dark); color: var(--light); padding: 0.5rem 1rem; border-radius: 8px; text-decoration: none; font-weight: 600; border: 1px solid var(--gray); transition: all 0.2s; }
+    .cat-link:hover { background: var(--red); border-color: var(--red); }
+    .newsletter { background: var(--dark); border-top: 2px solid var(--red); padding: 2rem 1.5rem; text-align: center; }
+    .newsletter h3 { font-family: 'Orbitron', sans-serif; margin-bottom: 0.5rem; font-size: 1.25rem; }
+    .newsletter p { color: #aaa; margin-bottom: 1rem; font-size: 0.95rem; }
+    .newsletter form { display: flex; flex-wrap: wrap; gap: 0.5rem; justify-content: center; max-width: 400px; margin: 0 auto; }
+    .newsletter input { flex: 1; min-width: 200px; padding: 0.6rem 0.75rem; border: 1px solid var(--gray); border-radius: 8px; background: var(--black); color: var(--light); font-family: inherit; }
+    .newsletter button { padding: 0.6rem 1.25rem; background: var(--red); border: none; border-radius: 8px; color: white; font-family: inherit; font-weight: 600; cursor: pointer; }
+    .newsletter button:hover { background: var(--red-dark); }
+    .promo-banner { background: var(--red-dark); color: white; padding: 0.6rem 1rem; text-align: center; font-weight: 600; font-size: 0.95rem; }
+    .promo-banner a { color: white; text-decoration: underline; }
+
     @media (max-width: 600px) {
       nav a { margin: 0 0.5rem; font-size: 0.95rem; }
       .cart-trigger { top: 0.5rem; right: 0.5rem; padding: 0.5rem 0.75rem; }
@@ -606,15 +631,66 @@
     🛒 Cart <span class="count" id="cart-count">0</span>
   </button>
 
+  <section class="promo-banner">
+    🚀 Free shipping on orders over $99 — <a href="shop.html">Shop now</a>
+  </section>
+
   <section class="hero">
     <h2>Welcome to Jay'z Entertainment</h2>
     <p>Premium RC cars built for speed and durability. Shop now and hit the track.</p>
+  </section>
+
+  <section class="stats-bar">
+    <div class="stat"><strong>500+</strong><span>Happy customers</span></div>
+    <div class="stat"><strong>50+</strong><span>RC models & parts</span></div>
+    <div class="stat"><strong>1–2 days</strong><span>Fast shipping</span></div>
+    <div class="stat"><strong>30-day</strong><span>Easy returns</span></div>
   </section>
 
   <section id="featured" class="section">
     <h2>Featured RC Cars</h2>
     <div class="grid" id="product-grid"></div>
     <p class="text-center"><a href="shop.html" class="btn">View All RC Cars →</a></p>
+  </section>
+
+  <section class="section why-section">
+    <h2>Why Shop With Us</h2>
+    <div class="why-grid">
+      <div class="why-card">
+        <span class="icon">⚡</span>
+        <strong>Ready to run</strong>
+        <p>Most rigs are RTR—unbox, charge, and drive. No guesswork.</p>
+      </div>
+      <div class="why-card">
+        <span class="icon">🛡️</span>
+        <strong>Curated quality</strong>
+        <p>We only stock what we’d run ourselves. No junk.</p>
+      </div>
+      <div class="why-card">
+        <span class="icon">📦</span>
+        <strong>Fast shipping</strong>
+        <p>Orders ship within 1–2 business days. Track your package.</p>
+      </div>
+      <div class="why-card">
+        <span class="icon">💬</span>
+        <strong>Real support</strong>
+        <p>Questions? Call or email. We’re here to help.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section categories-section">
+    <h2>Shop by Category</h2>
+    <div class="cat-grid">
+      <a href="shop.html" class="cat-link">All</a>
+      <a href="shop.html" class="cat-link">On-Road</a>
+      <a href="shop.html" class="cat-link">Off-Road</a>
+      <a href="shop.html" class="cat-link">Drift</a>
+      <a href="shop.html" class="cat-link">Monster Truck</a>
+      <a href="shop.html" class="cat-link">Crawler</a>
+      <a href="shop.html" class="cat-link">Rally</a>
+      <a href="shop.html" class="cat-link">Accessories</a>
+    </div>
   </section>
 
   <section class="section testimonials">
@@ -650,6 +726,10 @@
         <div class="faq-q">Do you offer spare parts? <span>▼</span></div>
         <div class="faq-a">We carry some common parts and batteries. Ask in the shop or contact us for specific parts. No returns on parts.</div>
       </div>
+      <div class="faq-item" onclick="this.classList.toggle('open')">
+        <div class="faq-q">How do I join VIP? <span>▼</span></div>
+        <div class="faq-a">Click "Join VIP" in the VIP section below or contact us. You'll get early access to new drops, member events, and discounts.</div>
+      </div>
     </div>
   </section>
 
@@ -665,7 +745,21 @@
     <button onclick="alert('VIP sign-up coming soon!')">Join VIP</button>
   </section>
 
+  <section id="race" class="race">
+    <h2 style="text-align:center; margin-bottom:1rem;">🏎️ RC Car Racing</h2>
+    <div class="track">
+      <img class="car" src="https://cdn-icons-png.flaticon.com/512/744/744465.png" alt="RC car">
+    </div>
+  </section>
 
+  <section class="newsletter">
+    <h3>Stay in the loop</h3>
+    <p>Get new drops, deals, and racing tips. No spam.</p>
+    <form onsubmit="event.preventDefault(); alert('Thanks for subscribing!'); this.reset();">
+      <input type="email" placeholder="Your email" required>
+      <button type="submit">Subscribe</button>
+    </form>
+  </section>
 
   <section class="section contact">
     <h2>Get in Touch</h2>
